@@ -10,6 +10,7 @@ from sklearn.metrics import precision_recall_curve, auc, roc_auc_score
 
 from skge import sample
 from skge.util import to_tensor
+import pdb
 
 logging.basicConfig(level=logging.DEBUG)
 log = logging.getLogger('EX-KG')
@@ -32,6 +33,7 @@ class Experiment(object):
         self.parser.add_argument('--no-pairwise', action='store_const', default=False, const=True)
         self.parser.add_argument('--mode', type=str, default='rank')
         self.parser.add_argument('--sampler', type=str, default='random-mode')
+        self.parser.add_argument('--norm', type=str, default='l1', help=' Normalization (l1(default) or l2)')
         self.neval = -1
         self.best_valid_score = -1.0
         self.exectimes = []
@@ -120,6 +122,7 @@ class Experiment(object):
             data = pickle.load(fin)
 
         N = len(data['entities'])
+        #pdb.set_trace()
         M = len(data['relations'])
         sz = (N, N, M)
 
@@ -162,6 +165,7 @@ class FilteredRankingEval(object):
         tt = ddict(lambda: {'ss': ddict(list), 'os': ddict(list)})
         self.neval = neval
         self.sz = len(xs)
+        #pdb.set_trace()
         for s, o, p in xs:
             idx[p].append((s, o))
 
@@ -187,6 +191,7 @@ class FilteredRankingEval(object):
             self.prepare_global(mdl)
 
         for p, sos in self.idx.items():
+            #pdb.set_trace()
             ppos = {'head': [], 'tail': []}
             pfpos = {'head': [], 'tail': []}
 
@@ -197,6 +202,8 @@ class FilteredRankingEval(object):
                 scores_o = self.scores_o(mdl, s, p).flatten()
                 sortidx_o = argsort(scores_o)[::-1]
                 ppos['tail'].append(np.where(sortidx_o == o)[0][0] + 1)
+
+                #pdb.set_trace()
 
                 rm_idx = self.tt[p]['os'][s]
                 rm_idx = [i for i in rm_idx if i != o]
