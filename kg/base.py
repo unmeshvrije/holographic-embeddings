@@ -191,22 +191,41 @@ class FilteredRankingEval(object):
             self.prepare_global(mdl)
 
         for p, sos in self.idx.items():
-            #pdb.set_trace()
+            pdb.set_trace()
+
+            # f stands for filtered (i.e. we will filter the entities that appear in true tuples)
+            # p might stand for predicate
+            # ppos = positions for predicates, where 
+            #'head' will contain the array of most eligible candidates for Head/Subject and 
+            #'tail' will contain the array of most eligible candidates for Tail/Objects
             ppos = {'head': [], 'tail': []}
             pfpos = {'head': [], 'tail': []}
 
             if hasattr(self, 'prepare'):
+                pdb.set_trace()
                 self.prepare(mdl, p)
 
+            # For some reason, skip last tuple from all the tuples for relation 'P'
+            # neval for every relation is -1
+            # self.neval[p] will access the last element and we are skipping the last one by
+            # array[:-1]
             for s, o in sos[:self.neval[p]]:
                 scores_o = self.scores_o(mdl, s, p).flatten()
                 sortidx_o = argsort(scores_o)[::-1]
+                # Sort all the entities (As objects) and find out the index of the "O" in picture
+                # Store the index+1 in the ppos['tail]
                 ppos['tail'].append(np.where(sortidx_o == o)[0][0] + 1)
 
-                #pdb.set_trace()
+                pdb.set_trace()
 
+                # In the real data, for relation "P", which entities appear as objects for subject "S"
                 rm_idx = self.tt[p]['os'][s]
+                # rm_idx is the list of such entities
+
+                # Remove the object "O" that we are currently considering from this list
                 rm_idx = [i for i in rm_idx if i != o]
+
+                # Set the scores of KNOWN objects (known truths) to infinity 
                 scores_o[rm_idx] = -np.Inf
                 sortidx_o = argsort(scores_o)[::-1]
                 pfpos['tail'].append(np.where(sortidx_o == o)[0][0] + 1)
