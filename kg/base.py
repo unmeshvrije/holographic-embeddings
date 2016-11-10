@@ -191,7 +191,7 @@ class FilteredRankingEval(object):
             self.prepare_global(mdl)
 
         for p, sos in self.idx.items():
-            pdb.set_trace()
+            #pdb.set_trace()
 
             # f stands for filtered (i.e. we will filter the entities that appear in true tuples)
             # p might stand for predicate
@@ -202,7 +202,7 @@ class FilteredRankingEval(object):
             pfpos = {'head': [], 'tail': []}
 
             if hasattr(self, 'prepare'):
-                pdb.set_trace()
+                #pdb.set_trace()
                 self.prepare(mdl, p)
 
             # For some reason, skip last tuple from all the tuples for relation 'P'
@@ -216,7 +216,7 @@ class FilteredRankingEval(object):
                 # Store the index+1 in the ppos['tail]
                 ppos['tail'].append(np.where(sortidx_o == o)[0][0] + 1)
 
-                pdb.set_trace()
+                #pdb.set_trace()
 
                 # In the real data, for relation "P", which entities appear as objects for subject "S"
                 rm_idx = self.tt[p]['os'][s]

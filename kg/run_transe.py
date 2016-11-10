@@ -13,17 +13,17 @@ log = logging.getLogger('EX-KG')
 class TransEEval(FilteredRankingEval):
 
     def prepare(self, mdl, p):
-        pdb.set_trace()
+        #pdb.set_trace()
         # Do the subject + predicate (add the embeddings of relations "P" to all entities)
         self.ER = mdl.E + mdl.R[p]
 
     def scores_o(self, mdl, s, p):
-        pdb.set_trace()
+        #pdb.set_trace()
         # Subtract embeddings of every entity from the "S"ubject
         return -np.sum(np.abs(self.ER[s] - mdl.E), axis=1)
 
     def scores_s(self, mdl, o, p):
-        pdb.set_trace()
+        #pdb.set_trace()
         # Subtract embeddings of the "O"bject from the S + P 
         return -np.sum(np.abs(self.ER - mdl.E[o]), axis=1)
 
@@ -51,6 +51,7 @@ class ExpTransE(Experiment):
             samplef=sampler.sample,
             post_epoch=[self.callback]
         )
+
         return trainer
 
 if __name__ == '__main__':
