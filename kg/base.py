@@ -28,6 +28,8 @@ class Experiment(object):
         self.parser.add_argument('--ne', type=int, help='Numer of negative examples', default=1)
         self.parser.add_argument('--nb', type=int, help='Number of batches')
         self.parser.add_argument('--fout', type=str, help='Path to store model and results', default=None)
+        self.parser.add_argument('--fgrad', type=str, help='Path to store gradient vector updates for each entity', default=None)
+        self.parser.add_argument('--fembed', type=str, help='Path to store final embeddings for every entity and relation', default=None)
         self.parser.add_argument('--fin', type=str, help='Path to input data', default=None)
         self.parser.add_argument('--test-all', type=int, help='Evaluate Test set after x epochs', default=10)
         self.parser.add_argument('--no-pairwise', action='store_const', default=False, const=True)

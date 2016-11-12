@@ -49,7 +49,9 @@ class ExpTransE(Experiment):
             max_epochs=self.args.me,
             learning_rate=self.args.lr,
             samplef=sampler.sample,
-            post_epoch=[self.callback]
+            post_epoch=[self.callback],
+            file_grad=self.args.fgrad,
+            file_embed=self.args.fembed
         )
 
         return trainer
