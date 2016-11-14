@@ -1,0 +1,171 @@
+Unmeshs-MacBook-Pro:holographic-embeddings unmesh$ python kg/run_transe.py --fin data/wn18.bin --test-all 5 --nb 100 --me 10 --margin 2.0 --lr 0.1 --ncomp 5
+INFO:EX-KG:l1 is True 
+INFO:EX-KG: sz = (40943, 40943, 18)  and init_nunif = 2
+INFO:EX-KG:Fitting model TransE with trainer PairwiseStochasticTrainer and parameters Namespace(fin='data/wn18.bin', fout=None, init='nunif', lr=0.1, margin=2.0, me=10, mode='rank', nb=100, ncomp=5, ne=1, no_pairwise=False, norm='l1', sampler='random-mode', test_all=5)
+INFO:EX-KG:Pairwise Stochastic Trainer fit() 
+INFO:EX-KG:[  1] time = 3s, violations = 268731
+INFO:EX-KG:[  2] time = 3s, violations = 257158
+INFO:EX-KG:[  3] time = 3s, violations = 250479
+INFO:EX-KG:[  4] time = 3s, violations = 245958
+INFO:EX-KG:[  5] time = 3s, violations = 242329
+INFO:EX-KG:[  5] VALID: MRR = 0.00/0.00, Mean Rank = 13740.31/13730.31, Hits@10 = 0.28/0.28
+DEBUG:EX-KG:FMRR valid = 0.001958, best = -1.000000
+INFO:EX-KG:[  5] TEST: MRR = 0.00/0.00, Mean Rank = 13621.17/13611.82, Hits@10 = 0.31/0.31
+INFO:EX-KG:[  6] time = 3s, violations = 239270
+INFO:EX-KG:[  7] time = 3s, violations = 236415
+INFO:EX-KG:[  8] time = 3s, violations = 234220
+INFO:EX-KG:[  9] time = 3s, violations = 231940
+INFO:EX-KG:[ 10] time = 3s, violations = 229921
+INFO:EX-KG:[ 10] VALID: MRR = 0.00/0.00, Mean Rank = 12250.58/12240.17, Hits@10 = 0.59/0.59
+DEBUG:EX-KG:FMRR valid = 0.003847, best = 0.001958
+INFO:EX-KG:[ 10] TEST: MRR = 0.00/0.00, Mean Rank = 12075.83/12066.04, Hits@10 = 0.58/0.58
+INFO:EX-KG:[ 10] time = 172s, violations = 229921
+INFO:EX-KG:[ 10] VALID: MRR = 0.00/0.00, Mean Rank = 12250.58/12240.17, Hits@10 = 0.59/0.59
+DEBUG:EX-KG:FMRR valid = 0.003847, best = 0.003847
+
+------------
+
+Unmeshs-MacBook-Pro:holographic-embeddings unmesh$ python kg/run_transe.py --fin data/wn18.bin --test-all 5 --nb 100 --me 10 --margin 2.0 --lr 0.1 --ncomp 5 --norm l2
+INFO:EX-KG:l1 is False 
+INFO:EX-KG: sz = (40943, 40943, 18)  and init_nunif = 2
+INFO:EX-KG:Fitting model TransE with trainer PairwiseStochasticTrainer and parameters Namespace(fin='data/wn18.bin', fout=None, init='nunif', lr=0.1, margin=2.0, me=10, mode='rank', nb=100, ncomp=5, ne=1, no_pairwise=False, norm='l2', sampler='random-mode', test_all=5)
+INFO:EX-KG:Pairwise Stochastic Trainer fit() 
+INFO:EX-KG:[  1] time = 3s, violations = 257693
+INFO:EX-KG:[  2] time = 3s, violations = 241834
+INFO:EX-KG:[  3] time = 3s, violations = 231279
+INFO:EX-KG:[  4] time = 3s, violations = 223465
+INFO:EX-KG:[  5] time = 3s, violations = 216745
+INFO:EX-KG:[  5] VALID: MRR = 0.00/0.00, Mean Rank = 13945.22/13935.34, Hits@10 = 0.17/0.17
+DEBUG:EX-KG:FMRR valid = 0.001423, best = -1.000000
+INFO:EX-KG:[  5] TEST: MRR = 0.00/0.00, Mean Rank = 13757.45/13748.25, Hits@10 = 0.10/0.10
+INFO:EX-KG:[  6] time = 3s, violations = 211738
+INFO:EX-KG:[  7] time = 3s, violations = 206710
+INFO:EX-KG:[  8] time = 3s, violations = 201839
+INFO:EX-KG:[  9] time = 3s, violations = 198415
+INFO:EX-KG:[ 10] time = 3s, violations = 195141
+INFO:EX-KG:[ 10] VALID: MRR = 0.00/0.00, Mean Rank = 11997.00/11986.82, Hits@10 = 0.25/0.25
+DEBUG:EX-KG:FMRR valid = 0.002078, best = 0.001423
+INFO:EX-KG:[ 10] TEST: MRR = 0.00/0.00, Mean Rank = 11838.34/11828.69, Hits@10 = 0.18/0.18
+INFO:EX-KG:[ 10] time = 172s, violations = 195141
+INFO:EX-KG:[ 10] VALID: MRR = 0.00/0.00, Mean Rank = 11997.00/11986.82, Hits@10 = 0.25/0.25
+DEBUG:EX-KG:FMRR valid = 0.002078, best = 0.002078
+
+---------------
+Unmeshs-MacBook-Pro:holographic-embeddings unmesh$ python kg/run_transe.py --fin data/wn18.bin --test-all 50 --nb 100 --me 500 --margin 2.0 --lr 0.1 --ncomp 50 > l1-norm-output
+INFO:EX-KG:l1 is True 
+INFO:EX-KG: sz = (40943, 40943, 18)  and init_nunif = 2
+INFO:EX-KG:Fitting model TransE with trainer PairwiseStochasticTrainer and parameters Namespace(fin='data/wn18.bin', fout=None, init='nunif', lr=0.1, margin=2.0, me=500, mode='rank', nb=100, ncomp=50, ne=1, no_pairwise=False, norm='l1', sampler='random-mode', test_all=50)
+INFO:EX-KG:Pairwise Stochastic Trainer fit() 
+INFO:EX-KG:[  1] time = 7s, violations = 213029
+INFO:EX-KG:[  2] time = 5s, violations = 129229
+INFO:EX-KG:[  3] time = 4s, violations = 76644
+INFO:EX-KG:[  4] time = 4s, violations = 50453
+INFO:EX-KG:[  5] time = 3s, violations = 36675
+INFO:EX-KG:[  6] time = 3s, violations = 28480
+INFO:EX-KG:[  7] time = 3s, violations = 23282
+INFO:EX-KG:[  8] time = 3s, violations = 19680
+INFO:EX-KG:[  9] time = 3s, violations = 17086
+INFO:EX-KG:[ 10] time = 3s, violations = 14885
+INFO:EX-KG:[ 11] time = 3s, violations = 13454
+INFO:EX-KG:[ 12] time = 3s, violations = 12056
+INFO:EX-KG:[ 13] time = 3s, violations = 10975
+INFO:EX-KG:[ 14] time = 3s, violations = 10166
+INFO:EX-KG:[ 15] time = 3s, violations = 9583
+INFO:EX-KG:[ 16] time = 3s, violations = 8668
+INFO:EX-KG:[ 17] time = 3s, violations = 8315
+INFO:EX-KG:[ 18] time = 3s, violations = 7877
+INFO:EX-KG:[ 19] time = 3s, violations = 7435
+INFO:EX-KG:[ 20] time = 3s, violations = 7094
+INFO:EX-KG:[ 21] time = 3s, violations = 6682
+INFO:EX-KG:[ 22] time = 3s, violations = 6500
+INFO:EX-KG:[ 23] time = 3s, violations = 6123
+INFO:EX-KG:[ 24] time = 3s, violations = 5865
+INFO:EX-KG:[ 25] time = 3s, violations = 5704
+INFO:EX-KG:[ 26] time = 3s, violations = 5413
+INFO:EX-KG:[ 27] time = 3s, violations = 5084
+INFO:EX-KG:[ 28] time = 3s, violations = 4889
+INFO:EX-KG:[ 29] time = 3s, violations = 4883
+INFO:EX-KG:[ 30] time = 3s, violations = 4731
+INFO:EX-KG:[ 31] time = 3s, violations = 4583
+INFO:EX-KG:[ 32] time = 3s, violations = 4397
+INFO:EX-KG:[ 33] time = 3s, violations = 4329
+INFO:EX-KG:[ 34] time = 3s, violations = 4257
+INFO:EX-KG:[ 35] time = 3s, violations = 4194
+INFO:EX-KG:[ 36] time = 3s, violations = 4034
+INFO:EX-KG:[ 37] time = 3s, violations = 3897
+INFO:EX-KG:[ 38] time = 3s, violations = 3877
+INFO:EX-KG:[ 39] time = 3s, violations = 3722
+INFO:EX-KG:[ 40] time = 3s, violations = 3595
+INFO:EX-KG:[ 41] time = 3s, violations = 3534
+INFO:EX-KG:[ 42] time = 3s, violations = 3507
+INFO:EX-KG:[ 43] time = 3s, violations = 3450
+INFO:EX-KG:[ 44] time = 3s, violations = 3474
+INFO:EX-KG:[ 45] time = 3s, violations = 3234
+INFO:EX-KG:[ 46] time = 3s, violations = 3261
+INFO:EX-KG:[ 47] time = 3s, violations = 3169
+INFO:EX-KG:[ 48] time = 3s, violations = 3043
+INFO:EX-KG:[ 49] time = 3s, violations = 3022
+INFO:EX-KG:[ 50] time = 3s, violations = 2929
+INFO:EX-KG:[ 50] VALID: MRR = 0.32/0.41, Mean Rank = 555.75/543.93, Hits@10 = 77.65/89.76
+DEBUG:EX-KG:FMRR valid = 0.412539, best = -1.000000
+INFO:EX-KG:[ 50] TEST: MRR = 0.32/0.41, Mean Rank = 525.42/513.50, Hits@10 = 78.04/89.95
+
+---------
+Unmeshs-MacBook-Pro:holographic-embeddings unmesh$ python kg/run_transe.py --fin data/wn18.bin --test-all 50 --nb 100 --me 500 --margin 2.0 --lr 0.1 --ncomp 50 --norm l2
+INFO:EX-KG:l1 is False 
+INFO:EX-KG: sz = (40943, 40943, 18)  and init_nunif = 2
+INFO:EX-KG:Fitting model TransE with trainer PairwiseStochasticTrainer and parameters Namespace(fin='data/wn18.bin', fout=None, init='nunif', lr=0.1, margin=2.0, me=500, mode='rank', nb=100, ncomp=50, ne=1, no_pairwise=False, norm='l2', sampler='random-mode', test_all=50)
+INFO:EX-KG:Pairwise Stochastic Trainer fit() 
+INFO:EX-KG:[  1] time = 7s, violations = 222898
+INFO:EX-KG:[  2] time = 6s, violations = 188143
+INFO:EX-KG:[  3] time = 6s, violations = 180383
+INFO:EX-KG:[  4] time = 6s, violations = 176395
+INFO:EX-KG:[  5] time = 6s, violations = 173317
+INFO:EX-KG:[  6] time = 6s, violations = 170778
+INFO:EX-KG:[  7] time = 6s, violations = 168977
+INFO:EX-KG:[  8] time = 6s, violations = 167307
+INFO:EX-KG:[  9] time = 6s, violations = 165247
+INFO:EX-KG:[ 10] time = 6s, violations = 163808
+INFO:EX-KG:[ 11] time = 6s, violations = 162388
+INFO:EX-KG:[ 12] time = 6s, violations = 160981
+INFO:EX-KG:[ 13] time = 6s, violations = 159759
+INFO:EX-KG:[ 14] time = 6s, violations = 158174
+INFO:EX-KG:[ 15] time = 6s, violations = 156808
+INFO:EX-KG:[ 16] time = 6s, violations = 156359
+INFO:EX-KG:[ 17] time = 6s, violations = 155076
+INFO:EX-KG:[ 18] time = 6s, violations = 153856
+INFO:EX-KG:[ 19] time = 6s, violations = 153505
+INFO:EX-KG:[ 20] time = 6s, violations = 152313
+INFO:EX-KG:[ 21] time = 6s, violations = 151380
+INFO:EX-KG:[ 22] time = 6s, violations = 150991
+INFO:EX-KG:[ 23] time = 6s, violations = 150331
+INFO:EX-KG:[ 24] time = 6s, violations = 149551
+INFO:EX-KG:[ 25] time = 6s, violations = 148793
+INFO:EX-KG:[ 26] time = 6s, violations = 148502
+INFO:EX-KG:[ 27] time = 6s, violations = 148057
+INFO:EX-KG:[ 28] time = 6s, violations = 147570
+INFO:EX-KG:[ 29] time = 6s, violations = 146587
+INFO:EX-KG:[ 30] time = 6s, violations = 146237
+INFO:EX-KG:[ 31] time = 6s, violations = 145999
+INFO:EX-KG:[ 32] time = 6s, violations = 145938
+INFO:EX-KG:[ 33] time = 6s, violations = 144794
+INFO:EX-KG:[ 34] time = 6s, violations = 144749
+INFO:EX-KG:[ 35] time = 6s, violations = 144053
+INFO:EX-KG:[ 36] time = 6s, violations = 143909
+INFO:EX-KG:[ 37] time = 6s, violations = 142875
+INFO:EX-KG:[ 38] time = 6s, violations = 142990
+INFO:EX-KG:[ 39] time = 6s, violations = 142581
+INFO:EX-KG:[ 40] time = 6s, violations = 142281
+INFO:EX-KG:[ 41] time = 6s, violations = 142232
+INFO:EX-KG:[ 42] time = 5s, violations = 141645
+INFO:EX-KG:[ 43] time = 5s, violations = 141481
+INFO:EX-KG:[ 44] time = 6s, violations = 141141
+INFO:EX-KG:[ 45] time = 6s, violations = 140245
+INFO:EX-KG:[ 46] time = 6s, violations = 140832
+INFO:EX-KG:[ 47] time = 5s, violations = 140110
+INFO:EX-KG:[ 48] time = 6s, violations = 140027
+INFO:EX-KG:[ 49] time = 5s, violations = 139861
+INFO:EX-KG:[ 50] time = 6s, violations = 139514
+INFO:EX-KG:[ 50] VALID: MRR = 0.18/0.21, Mean Rank = 856.14/844.01, Hits@10 = 39.09/42.36
+DEBUG:EX-KG:FMRR valid = 0.207482, best = -1.000000
+INFO:EX-KG:[ 50] TEST: MRR = 0.19/0.21, Mean Rank = 779.22/767.06, Hits@10 = 39.63/42.64
